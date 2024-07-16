@@ -16,7 +16,56 @@
             return pick.toLowerCase()
         }
 
+        let humanScore = 0,
+            computerScore = 0;
 
+        function playRound(humanChoice, computerChoice) {
+            let gameState = "";
+            if (humanChoice==computerChoice) {
+                gameState = "tie";
+            } else {
+                switch (humanChoice) {
+                    case "rock":
+                        if (computerChoice==choice[2]) {
+                            gameState = "win";
+                        } else {
+                            gameState = "lose";
+                        }
+                        break;
+
+                    case "scissors":
+                        if (computerChoice==choice[1]) {
+                            gameState = "win";
+                        } else {
+                            gameState = "lose";
+                        }
+                        break;
+
+                    case "paper":
+                        if (computerChoice==choice[0]) {
+                            gameState = "win";
+                        } else {
+                            gameState = "lose";
+                        }
+                        break;
+                }
+            }
+            switch (gameState) {
+                case "tie": 
+                    console.log("Game tied!");break;
+                case "win":
+                    console.log("You win! "+humanChoice+" beats "+computerChoice+"!");
+                    humanScore++;
+                    break;
+                case "lose":
+                    console.log("You lose! "+computerChoice+" beats "+humanChoice+"!");
+                    computerScore++;
+                    break;
+            }
+            console.log("Human | Computer");
+            console.log(humanScore + " " + computerScore);
+            return
+        }
         //End script
     </script>
 </head>
